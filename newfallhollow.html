@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="images/Hooker Hill (1).jpg"/>
+    <meta property="og:image" content="images/IG_1.png">
+    <meta name="og:title" content="Fall Hollow Video Page">
+    <meta name="og:description" content="Videos of Fall Hollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall Hollow Video Page</title>
+    <style>
+      /* Default styles */
+      p {
+        justify-content: center;
+        margin: 10%;
+      }
+      body {
+        background-color: gray;
+        text-align: center;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: row;
+      }
+
+      .container > div {
+        width: 100%;
+        height: 600px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+
+      .container > div:nth-child(even) {
+        flex-direction: row;
+      }
+
+      .container > div > p {
+        width: 48%;
+        font-size: 1.5em;
+        line-height: 1.5;
+        margin: 10%;
+        text-align: center;
+      }
+
+      .container > div:nth-child(even) > iframe {
+        margin-right: 0;
+        margin-left: 2%;
+      }
+
+      .container > div:nth-child(even) > p {
+        margin-left: 0;
+        margin-right: 2%;
+        text-align: center;
+        justify-content: center;
+        margin: 10%;
+      }
+
+      .container > div:nth-child(odd) > p {
+        justify-content: center;
+        margin: 10%;
+      }
+
+      .container .rows:nth-child(odd) {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+      }
+
+      .container .rows {
+        background-color: black;
+        color: gray;
+      }
+
+      footer {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      /* Media query for small screens */
+      @media only screen and (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .container > div > iframe {
+          width: 90%
+        }
+
+        .container > div > p {
+          width: 90%;
+          font-size: 1em;
+          line-height: 1;
+          margin: 5% auto;
+        }
+
+        .container > div {
+          width: 90%;
+        }
+
+        .container > div:nth-child(even) > iframe {
+          margin-left: 0;
+        }
+
+        .container > div:nth-child(even) > p {
+          margin: 5% auto;
+        }
+
+        .container > div:nth-child(odd) > p {
+          margin: 5% auto;
+        }
+
+        .container .rows:nth-child(odd) {
+          flex-direction: column;
+        }
+
+        .container .rows:nth-child(even) {
+          flex-direction: column;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+  <h1>Adventures In Fall Hollow</h1>
+  <hr>
+ 
+  <br>
+    <div class="container">
+      <div class="rows">
+        <iframe width="50%" height="100%" src="https://www.youtube.com/embed/vLFLbFzw_F8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+          <p>Using a voxel plugin I am creating a cave system that will connect the entire map on a subterranean level and provide another dimension of exploration with obstacles to overcome and puzzles to solve.
+          </p>
+        </div>
+        <div class="rows">
+          <iframe width="50%" height="100%" src="https://www.youtube.com/embed/hLPieQI3wt4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+              <p>
+                The main character is followed by his fox and crow companion who can be possessed at any time.
+                Each character has unique abilities that aid in solving puzzles, defeating enemies, etc. 
+              </p>
+            </div>
+            <div class="rows">
+              <iframe width="50%" height="100%" src="https://www.youtube.com/embed/dRwlQ48YnBc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+                  <p>All of the fauna in Fall Hollow have independant eat/sleep schedules and will flee from danger when approached.
+                  </p>
+                </div>
+                <div class="rows">
+                  <iframe width="50%" height="100%" src="https://www.youtube.com/embed/eQgwyk0FoWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+                      <p>Dynamic weather with random rain and snow storms. The birds stop singing and fog gets thick, the lighting dims, and the storm begins.
+                      </p>
+                    </div>
+                    <div class="rows">
+                      <iframe width="50%" height="100%" src="https://www.youtube.com/embed/jAqoN4YqHms" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                          <p>This fireball attack has excellent smoke trails and damage effectiveness. Each enemy drops a random piece of loot when defeated. 
+                          </p>
+                        </div>
+      
+    </div>
+    <footer>
+        <hr>
+          <p>Hooker Hill Studios © 2023</p>
+      </footer>
+  </body>
+</html>

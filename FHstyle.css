@@ -1,0 +1,52 @@
+body {
+    background: black;
+    width: 95%;
+    justify-content: center;
+    text-align: center;
+    
+  }
+  
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+  h1 {
+    text-align: center;
+    color: whitesmoke;
+   font-size: 3em;
+  }
+  
+  a {
+    color: rgb(147, 100, 205);
+    font-size: 2em;
+  }
+  
+  img {
+    height: 30%;
+    width: 80%;
+  }
+  
+  p {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+  }
+  
+  footer {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  footer p {
+    margin: 0;
+  }
+
+  
+ 
+ 
+  
+
+  
+  
