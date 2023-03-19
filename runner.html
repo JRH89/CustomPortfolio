@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="images/Hooker Hill (1).jpg"/>
+    <meta property="og:image" content="images/IG_1.png">
+    <meta name="og:title" content="Fall Hollow Video Page">
+    <meta name="og:description" content="Videos of Fall Hollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Runner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+    <style>
+      canvas {
+        border: 1px solid goldenrod;
+        width: 100%;
+        background-color: black;
+        height: auto;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      body {
+        font-family: Play, sans-serif;
+      }
+      
+      canvas {
+        font-family: Play, sans-serif;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <p>
+        CONTROLS:<br>Jump- SPACE, TOUCH screen 
+    </p>
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
+      // Set up the game variables
+      let bird = {
+        x: 50,
+        y: canvas.height / 2,
+        width: 25,
+        height: 25,
+        velocity: 0,
+        gravity: 0.4,
+        jump: -10,
+      };
+      let pipes = [];
+      let score = 0;
+      let gameOver = false;
+      let paused = true;
+
+      // Handle keyboard input
+      document.addEventListener("keydown", (event) => {
+        if (event.code === "Space") {
+          bird.velocity = bird.jump;
+        }
+      });
+
+      // Handle touch input
+    canvas.addEventListener("touchstart", (event) => {
+    bird.velocity = bird.jump;
+    });
+  
+
+      // Move the bird and pipes
+      function move() {
+        // Move the bird
+        bird.velocity += bird.gravity;
+        bird.y += bird.velocity;
+
+        // Move the pipes
+        for (let i = 0; i < pipes.length; i++) {
+          pipes[i].x -= 5;
+          if (pipes[i].x + pipes[i].width < 0) {
+            pipes.splice(i, 1);
+            i--;
+          }
+        }
+
+        // Spawn new pipes
+        if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 200) {
+          let gap = 300;
+          let topHeight = Math.floor(Math.random() * (canvas.height - gap - 50));
+          pipes.push({
+            x: canvas.width,
+            y: 0,
+            width: 50,
+            height: topHeight,
+          });
+          pipes.push({
+            x: canvas.width,
+            y: topHeight + gap,
+            width: 50,
+            height: canvas.height - topHeight - gap,
+          });
+        }
+
+        // Check for collision with pipes
+        for (let i = 0; i < pipes.length; i += 2) {
+          if (
+            bird.x < pipes[i].x + pipes[i].width &&
+            bird.x + bird.width > pipes[i].x &&
+            bird.y < pipes[i].height ||
+            bird.x < pipes[i + 1].x + pipes[i + 1].width &&
+            bird.x + bird.width > pipes[i + 1].x &&
+            bird.y + bird.height > pipes[i + 1].y
+          ) {
+            gameOver = true;
+          }
+        }
+      }
+
+      // Draw the game on the canvas
+      function draw() {
+        // Resize canvas to fit the window size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight * 0.8;
+
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+
+        // Increase the score every second
+setInterval(() => {
+    if (!gameOver) {
+      score++;
+    }
+  }, 1000);
+
+        // Move the bird and pipes
+        move();
+
+       // Draw the bird
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.moveTo(bird.x + bird.width / 2, bird.y);
+        ctx.lineTo(bird.x + bird.width * 0.7, bird.y + bird.height * 0.4);
+        ctx.lineTo(bird.x + bird.width, bird.y + bird.height / 2);
+        ctx.lineTo(bird.x + bird.width * 0.7, bird.y + bird.height * 0.6);
+        ctx.lineTo(bird.x + bird.width / 2, bird.y + bird.height);
+        ctx.lineTo(bird.x + bird.width * 0.3, bird.y + bird.height * 0.6);
+        ctx.lineTo(bird.x, bird.y + bird.height / 2);
+        ctx.lineTo(bird.x + bird.width * 0.3, bird.y + bird.height * 0.4);
+        ctx.closePath();
+        ctx.fill();
+
+
+        // Draw the pipes
+        for (let i = 0; i < pipes.length; i++) {
+          ctx.fillStyle = "darkgreen";
+          ctx.fillRect(pipes[i].x, pipes[i].y, pipes[i].width, pipes[i].height);
+        }
+
+        // Draw the score
+        ctx.fillStyle = "yellow  ";
+        ctx.font = "2em Play";
+        ctx.fillText("Score: " + score, 10, 30);
+
+        // Draw the game over message
+        if (gameOver) {
+          ctx.fillStyle = "red";
+          ctx.font = "2em Play";
+          ctx.textAlign = "center"; // Center the text horizontally
+          ctx.fillText("Game Over!", canvas.width / 2, canvas.height / 2);
+        }
+    
+        // Call the draw function again
+        if (!gameOver) {
+          requestAnimationFrame(draw);
+        }
+      }
+    
+      // Start the game
+      draw();
+    </script>
+    </body>
+    </html>
+    
