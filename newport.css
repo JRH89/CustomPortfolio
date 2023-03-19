@@ -25,6 +25,8 @@
   padding: 0px 0px 0px;
   
 }
+
+
   body {
     margin-top: 2em;
     font-family: 'Play', sans-serif;
@@ -60,12 +62,17 @@
     color: var(--text-color);
   }
 
+  footer {
+    text-align: center;
+  }
 
       hr {
-        width: 33.33%;
-        height: 1px;
-        background-color: black;
-        margin: 0 auto;
+         width: 90%;
+          height: 3px;
+          background-image: linear-gradient(to right, red,  green, blue);
+          border: none;
+          margin: 0 auto;
+        
       }
       
       
@@ -198,7 +205,9 @@
     background-color: #333;
   }
   
-
+footer {
+  color: white;
+}
   
   .row {
     display: flex;
