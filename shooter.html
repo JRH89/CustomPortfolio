@@ -1,11 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" href="images/Hooker Hill (1).jpg" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="newport.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
 <head>
     <title>Shooting Gallery Game</title>
+    <style>
+        #canvas {
+           
+                display: block;
+                margin: 0 auto;
+                background-color: #87ceeb;
+                border: 2px solid #000;
+        }
+
+
+        body {
+            background-color: #333;
+        }
+        p {
+            text-align: center;
+            font-size: 2em;
+            color: orange;
+        }
+    </style>
 </head>
 <body>
     <canvas id="canvas" width="500" height="500"></canvas>
-    
+    <p>CONTROLS:<br>
+    Aim: mouse/touch<br>
+    Shoot: left mouse button<br>
+    Pause: P</p>
 
     <script src="shooter.js"></script>
 </body>

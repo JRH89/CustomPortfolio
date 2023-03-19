@@ -6,7 +6,7 @@ let gunAngle = 0;
 let gunX = 250;
 let gunY = 450;
 let targets = [];
-let targetSpeed = 1;
+let targetSpeed = 2;
 let targetSpawnInterval = 200;
 let ammo = 20;
 let missedShots = 0;
@@ -80,9 +80,8 @@ function drawGun() {
     ctx.arc(250, 450, 50, 0, 2 * Math.PI);
     ctx.fill();
     ctx.closePath();
-    
     ctx.beginPath();
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "#00a86b";
     ctx.arc(gunX, gunY, 20, 0, 2 * Math.PI);
     ctx.fill();
     ctx.closePath();
@@ -108,8 +107,8 @@ function drawTargets() {
 function spawnTarget() {
     let target = {
         x: -50,
-        y: Math.random() * (canvas.height - 100) + 50,
-        radius: 30,
+        y: Math.random() * (canvas.height / 2) - 50,
+        radius: 20,
         color: "red",
         speed: targetSpeed
     };
@@ -152,7 +151,9 @@ function update() {
         gunY = 450 + Math.sin(gunAngle) * 50;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBackground();
         drawGun();
+        
         drawBullets();
         drawTargets();
         drawAmmo();
@@ -207,7 +208,20 @@ function update() {
     }
 }
 
-
+function drawBackground() {
+    // Draw the sky
+    ctx.fillStyle = "#87ceeb";
+    ctx.fillRect(0, 0, canvas.width, canvas.height/2);
+  
+    // Draw the grass
+    ctx.fillStyle = "#00a86b";
+    ctx.fillRect(0, canvas.height/2, canvas.width, canvas.height/2);
+  
+    // Draw the dirt
+    ctx.fillStyle = "#8b4513";
+    ctx.fillRect(0, canvas.height/2 + 10, canvas.width, 20);
+  }
+  
 
 function fireBullet() {
     ammo--;
