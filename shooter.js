@@ -43,7 +43,17 @@ canvas.addEventListener("touchmove", function(e) {
     mouseY = e.touches[0].clientY - canvas.offsetTop;
 });
 
-canvas.addEventListener("touchstart", function(e) {
+/*canvas.addEventListener("touchstart", function(e) {
+    e.preventDefault();
+    if (isPaused) {
+        isPaused = false;
+    } else if (ammo > 0) {
+        fireBullet();
+    }
+});
+*/
+
+canvas.addEventListener("touchend", function(e) {
     e.preventDefault();
     if (isPaused) {
         isPaused = false;
