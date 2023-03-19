@@ -59,6 +59,13 @@
       }
   
 
+      hr {
+        width: 33.33%;
+        height: 1px;
+        background-color: black;
+        margin: 0 auto;
+      }
+      
       
   
   h1 {
