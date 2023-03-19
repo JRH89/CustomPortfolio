@@ -51,6 +51,7 @@
     text-align: center;
     height: 100%;
     width: 100%;
+    max-width: 800px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -202,7 +203,26 @@
   .row {
     display: flex;
     flex-wrap: wrap;
+    max-width: 800px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-basis: calc(50% - 10px);
+    margin-bottom: 20px;
+    padding: .2em;
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
     
+    align-items: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     
   }
   
