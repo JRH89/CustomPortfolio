@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="images/Hooker Hill (1).jpg"/>
+    <meta property="og:image" content="images/IG_1.png">
+    <meta name="og:title" content="Handball">
+    <meta name="og:description" content="Single player handball">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+    <title>Handball</title>
+    <style>
+        canvas {
+            border: 3px solid #2697d9;
+            width: 750px;
+            background-color: black;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+          }
+          
+          #pause {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            color: #2697d9;
+            text-align: center;
+            display: none;
+            justify-content: center;
+            align-items: center;
+          }
+          
+          body {
+            background-color: #333;
+            font-family: Play, sans-serif;
+            position: relative;
+          }
+          
+          h2 {
+            text-align: center;
+            font-size: 2em;
+            color: #2697d9;
+          }
+          
+          p {
+            text-align: center;
+            font-size: 2em;
+            color: orange;
+          }
+          
+          @media screen and (max-width: 768px) {
+            #pause {
+                left: 50%;
+                top: 40%;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            #pause {
+                left: 50%;
+                top: 30%;
+            }
+        }
+        
+        @media screen and (max-width: 320px) {
+            #pause {
+                left: 50%;
+                top: 20%;
+            }
+        }
+        
+
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <div id="pause"><u>PAUSED</u><br>Press SPACE or TAP screen to Play</div>
+    <script>
+        var canvas = document.getElementById("gameCanvas");
+        var ctx = canvas.getContext("2d");
+
+        var ballX = canvas.width/2;
+        var ballY = canvas.height/2;
+        var ballRadius = 4;
+        var ballSpeedX = 2;
+        var ballSpeedY = 2;
+
+        var paddleHeight = 30;
+        var paddleWidth = 10;
+        var paddleSpeed = 10 ;
+        var paddleY = (canvas.height - paddleHeight) / 2;
+
+        var gamePaused = false;
+        window.onload = function() {
+            togglePause();
+        };
+
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(ballX, ballY, ballRadius, 0, Math.PI*2);
+            ctx.fillStyle = "#ff5757";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawPaddle() {
+            ctx.beginPath();
+            ctx.rect(canvas.width-paddleWidth, paddleY, paddleWidth, paddleHeight);
+            ctx.fillStyle = "#7ed957";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function movePaddle(evt) {
+            if (evt.type === "keydown") {
+                if (evt.keyCode == 38) {
+                    paddleY -= paddleSpeed;
+                } else if (evt.keyCode == 40) {
+                    paddleY += paddleSpeed;
+                }
+            } else if (evt.type === "touchstart" || evt.type === "touchmove") {
+                var touch = evt.touches[0];
+                var touchY = touch.pageY - canvas.offsetTop;
+                if (touchY > paddleY && touchY < paddleY + paddleHeight) {
+                    paddleY = touchY - paddleHeight / 2;
+                }
+            }
+        }
+        
+
+        function gameLoop() {
+            if (!gamePaused) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                drawBall();
+                drawPaddle();
+                
+
+                if (ballY + ballRadius > canvas.height || ballY - ballRadius < 0) {
+                    ballSpeedY = -ballSpeedY;
+                }
+
+                if (ballX + ballRadius > canvas.width - paddleWidth) {
+                    if (ballY > paddleY && ballY < paddleY + paddleHeight) {
+                        ballSpeedX = -ballSpeedX;
+                    } else {
+                        gamePaused = true;
+                        
+                        document.location.reload();
+                    }
+                }
+
+                if (ballX - ballRadius < 0 + paddleWidth) {
+                    ballSpeedX = -ballSpeedX;
+                }
+
+                ballX += ballSpeedX;
+                ballY += ballSpeedY;
+
+                document.addEventListener("keydown", movePaddle, false);
+            }
+
+            requestAnimationFrame(gameLoop);
+        }
+
+        function togglePause() {
+            gamePaused = !gamePaused;
+            var pauseMenu = document.getElementById("pause");
+            if (gamePaused) {
+                pauseMenu.style.display = "block";
+            } else {
+                pauseMenu.style.display = "none";
+            }
+        }
+        document.addEventListener("keydown", function(evt) {
+            if (evt.keyCode == 32) {
+                togglePause();
+            }
+        }, false);
+        
+        document.addEventListener("touchstart", function(evt) {
+            togglePause();
+        }, false);
+        
+
+        gameLoop();
+    </script>
+
+    <h2>CONTROLS:<br>UP and DOWN arrows to move<br>Touch/Tap screen to move on mobile<br>SPACE to Pause</h2>
+</body>
+</html>

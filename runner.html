@@ -13,30 +13,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
     <style>
       canvas {
-        border: 1px solid goldenrod;
+        border: 3px solid goldenrod;
         width: 100%;
         background-color: black;
         height: auto;
-      }
-
-      p {
-        text-align: center;
+        font-family: Play, sans-serif;
       }
 
       body {
-        font-family: Play, sans-serif;
-      }
-      
-      canvas {
-        font-family: Play, sans-serif;
-      }
+        background-color: #333;
+        font-family: Play, sans-serif;  
+    }
+    p {
+        text-align: center;
+        font-size: 2em;
+        color: orange;
+    }
       
     </style>
   </head>
   <body>
     <canvas id="canvas"></canvas>
     <p>
-        CONTROLS:<br>Jump- SPACE, TOUCH screen 
+        CONTROLS:<br>Jump =   SPACE or TAP screen 
     </p>
     <script>
       const canvas = document.getElementById("canvas");
@@ -155,7 +154,7 @@ setInterval(() => {
 
         // Draw the pipes
         for (let i = 0; i < pipes.length; i++) {
-          ctx.fillStyle = "darkgreen";
+          ctx.fillStyle = "gray";
           ctx.fillRect(pipes[i].x, pipes[i].y, pipes[i].width, pipes[i].height);
         }
 
@@ -166,8 +165,8 @@ setInterval(() => {
 
         // Draw the game over message
         if (gameOver) {
-          ctx.fillStyle = "red";
-          ctx.font = "2em Play";
+          ctx.fillStyle = "orange";
+          ctx.font = "3em Play";
           ctx.textAlign = "center"; // Center the text horizontally
           ctx.fillText("Game Over!", canvas.width / 2, canvas.height / 2);
         }
