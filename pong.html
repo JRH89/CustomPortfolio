@@ -198,6 +198,9 @@
                 togglePause();
             }
         }, false);
+        document.addEventListener("touchstart", function(evt) {
+            togglePause();
+        }, false);
         
       
         var moveUpButton = document.getElementById("moveUp");
