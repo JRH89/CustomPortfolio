@@ -12,13 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
     <title>Handball</title>
     <style>
-        .buttons {
-            justify-content: center;
-            align-content: center;
-            align-items: center;
-            text-align: center;
-            padding-top: 1em;
-        }
         canvas {
             border: 3px solid #2697d9;
             width: 750px;
@@ -54,7 +47,12 @@
             color: #2697d9;
           }
           
-      
+          p {
+            text-align: center;
+            font-size: 2em;
+            color: orange;
+          }
+          
           @media screen and (max-width: 768px) {
             #pause {
                 left: 50%;
@@ -80,14 +78,12 @@
     </style>
 </head>
 <body>
-  
-      
     <canvas id="gameCanvas"></canvas>
-    <div id="pause"><u>PAUSED</u><br>Press SPACE or TAP screen to Play</div>
+    <div id="pause"><u>PAUSED</u><br>Press SPACE to Play</div>
     <script>
         var canvas = document.getElementById("gameCanvas");
         var ctx = canvas.getContext("2d");
-
+         
         var ballX = canvas.width/2;
         var ballY = canvas.height/2;
         var ballRadius = 4;
@@ -136,8 +132,6 @@
             }
         }
         
-        
-        
 
         function gameLoop() {
             if (!gamePaused) {
@@ -172,7 +166,6 @@
             }
 
             requestAnimationFrame(gameLoop);
-           
         }
 
         function togglePause() {
@@ -190,29 +183,15 @@
             }
         }, false);
         
-        
-      
-        var moveUpButton = document.getElementById("moveUp");
-        var moveDownButton = document.getElementById("moveDown");
-
-        moveUpButton.addEventListener("click", function(evt) {
-            paddleY -= paddleSpeed;
-        });
-
-        moveDownButton.addEventListener("click", function(evt) {
-        paddleY += paddleSpeed;
-        });
-
-
+       
+        canvas.addEventListener("touchstart", function(e) {
+            // Check if two fingers are touching the screen
+            if (e.touches.length === 2) {
+                togglePause();
+            }});
         gameLoop();
-
-        
     </script>
-    <div class="buttons" id="buttons">
-        <button id="moveUp">Move Up</button>
-        <button id="moveDown">Move Down</button>
-      </div>
-      
-    <h2>CONTROLS:<br>UP and DOWN arrows to move<br>Touch/Tap screen to move on mobile<br>SPACE to Pause</h2>
+
+    <h2><hr>CONTROLS:<br>UP/DOWN keys<br>SPACE to Pause</h2>
 </body>
 </html>
