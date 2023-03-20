@@ -79,7 +79,7 @@
 </head>
 <body>
     <canvas id="gameCanvas"></canvas>
-    <div id="pause"><u>PAUSED</u><br>Press SPACE to Play</div>
+    <div id="pause"><u>PAUSED</u><br>Press SPACE or Tap with 2 fingers to Play</div>
     <script>
         var canvas = document.getElementById("gameCanvas");
         var ctx = canvas.getContext("2d");
@@ -118,19 +118,26 @@
 
         function movePaddle(evt) {
             if (evt.type === "keydown") {
-                if (evt.keyCode == 38) {
-                    paddleY -= paddleSpeed;
-                } else if (evt.keyCode == 40) {
-                    paddleY += paddleSpeed;
-                }
+              if (evt.keyCode == 38) {
+                paddleY -= paddleSpeed;
+              } else if (evt.keyCode == 40) {
+                paddleY += paddleSpeed;
+              }
             } else if (evt.type === "touchstart" || evt.type === "touchmove") {
-                var touch = evt.touches[0];
-                var touchY = touch.pageY - canvas.offsetTop;
-                if (touchY > paddleY && touchY < paddleY + paddleHeight) {
-                    paddleY = touchY - paddleHeight / 2;
-                }
+              var touch = evt.touches[0];
+              var touchY = touch.pageY - canvas.offsetTop;
+              if (touchY > paddleY && touchY < paddleY + paddleHeight) {
+                paddleY = touchY - paddleHeight / 2;
+              }
+            } else if (evt.type === "deviceorientation") {
+              var tilt = evt.gamma; // gamma is the tilt around the y-axis
+              paddleY += tilt * 5; // adjust paddle position based on tilt
             }
-        }
+          }
+          
+          // add event listeners to detect device tilt
+          window.addEventListener("deviceorientation", movePaddle);
+          
         
 
         function gameLoop() {
