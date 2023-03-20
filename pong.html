@@ -12,6 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
     <title>Handball</title>
     <style>
+        .buttons {
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 1em;
+        }
         canvas {
             border: 3px solid #2697d9;
             width: 750px;
@@ -78,6 +85,8 @@
     </style>
 </head>
 <body>
+  
+      
     <canvas id="gameCanvas"></canvas>
     <div id="pause"><u>PAUSED</u><br>Press SPACE or TAP screen to Play</div>
     <script>
@@ -130,6 +139,13 @@
                     paddleY = touchY - paddleHeight / 2;
                 }
             }
+
+
+
+
+
+
+
         }
         
 
@@ -183,14 +199,28 @@
             }
         }, false);
         
-        document.addEventListener("touchstart", function(evt) {
-            togglePause();
-        }, false);
-        
+      
+        var moveUpButton = document.getElementById("moveUp");
+        var moveDownButton = document.getElementById("moveDown");
+
+        moveUpButton.addEventListener("click", function() {
+            paddleY -= paddleSpeed;
+        });
+
+        moveDownButton.addEventListener("click", function() {
+        paddleY += paddleSpeed;
+        });
+
 
         gameLoop();
-    </script>
 
+        
+    </script>
+    <div class="buttons" id="buttons">
+        <button id="moveUp">Move Up</button>
+        <button id="moveDown">Move Down</button>
+      </div>
+      
     <h2>CONTROLS:<br>UP and DOWN arrows to move<br>Touch/Tap screen to move on mobile<br>SPACE to Pause</h2>
 </body>
 </html>
