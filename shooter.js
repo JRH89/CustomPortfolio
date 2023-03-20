@@ -13,12 +13,21 @@ let missedShots = 0;
 let score = 0;
 let isPaused = false;
 let bullets = [];
+//ammoob
+function AmmoObstacle(x, y) {
+    this.x = x;
+    this.y = y;
+    this.width = 40;
+    this.height = 40;
+    this.ammo = 5;
+  }
+  
 
 function drawBullets() {
     for (let i = 0; i < bullets.length; i++) {
         let bullet = bullets[i];
         ctx.beginPath();
-        ctx.fillStyle = "black";
+        ctx.fillStyle = "goldenrod";
         ctx.arc(bullet.x, bullet.y, 5, 0, 2 * Math.PI);
         ctx.fill();
         ctx.closePath();
