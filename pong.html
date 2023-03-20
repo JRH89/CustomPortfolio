@@ -54,12 +54,7 @@
             color: #2697d9;
           }
           
-          p {
-            text-align: center;
-            font-size: 2em;
-            color: orange;
-          }
-          
+      
           @media screen and (max-width: 768px) {
             #pause {
                 left: 50%;
@@ -139,14 +134,9 @@
                     paddleY = touchY - paddleHeight / 2;
                 }
             }
-
-
-
-
-
-
-
         }
+        
+        
         
 
         function gameLoop() {
@@ -182,6 +172,7 @@
             }
 
             requestAnimationFrame(gameLoop);
+           
         }
 
         function togglePause() {
@@ -198,19 +189,17 @@
                 togglePause();
             }
         }, false);
-        document.addEventListener("touchstart", function(evt) {
-            togglePause();
-        }, false);
+        
         
       
         var moveUpButton = document.getElementById("moveUp");
         var moveDownButton = document.getElementById("moveDown");
 
-        moveUpButton.addEventListener("click", function() {
+        moveUpButton.addEventListener("click", function(evt) {
             paddleY -= paddleSpeed;
         });
 
-        moveDownButton.addEventListener("click", function() {
+        moveDownButton.addEventListener("click", function(evt) {
         paddleY += paddleSpeed;
         });
 
