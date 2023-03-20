@@ -24,7 +24,7 @@
           
           #pause {
             position: absolute;
-            top: 50%;
+            top: 30%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 2em;
@@ -44,14 +44,15 @@
           h2 {
             text-align: center;
             font-size: 2em;
+            color: #7ed957;
+          }
+
+          h3 {
+            text-align: center;
+            font-size: 2em;
             color: #2697d9;
           }
           
-          p {
-            text-align: center;
-            font-size: 2em;
-            color: orange;
-          }
           
           @media screen and (max-width: 768px) {
             #pause {
@@ -73,13 +74,28 @@
                 top: 20%;
             }
         }
+
+        .button {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 1em;
+        }
+
+        .button button {
+            font-size: 60px;
+            padding: 10px 40px;
+            background-color: #ff5757;
+            color:#7ed957;
+          }
+          
         
 
     </style>
 </head>
 <body>
     <canvas id="gameCanvas"></canvas>
-    <div id="pause"><u>PAUSED</u><br>Press SPACE or Tap with 2 fingers to Play</div>
+    <div id="pause"><u>PAUSED</u><br>Press SPACE or Tap with 2 fingers to Start</div>
     <script>
         var canvas = document.getElementById("gameCanvas");
         var ctx = canvas.getContext("2d");
@@ -118,62 +134,73 @@
 
         function movePaddle(evt) {
             if (evt.type === "keydown") {
-              if (evt.keyCode == 38) {
-                paddleY -= paddleSpeed;
-              } else if (evt.keyCode == 40) {
-                paddleY += paddleSpeed;
-              }
+                if (evt.keyCode == 38) {
+                    paddleY -= paddleSpeed;
+                } else if (evt.keyCode == 40) {
+                    paddleY += paddleSpeed;
+                }
             } else if (evt.type === "touchstart" || evt.type === "touchmove") {
-              var touch = evt.touches[0];
-              var touchY = touch.pageY - canvas.offsetTop;
-              if (touchY > paddleY && touchY < paddleY + paddleHeight) {
-                paddleY = touchY - paddleHeight / 2;
-              }
-            } else if (evt.type === "deviceorientation") {
-              var tilt = evt.gamma; // gamma is the tilt around the y-axis
-              paddleY += tilt * 5; // adjust paddle position based on tilt
+                var touch = evt.touches[0];
+                var touchY = touch.pageY - canvas.offsetTop;
+                if (touchY > paddleY && touchY < paddleY + paddleHeight) {
+                    paddleY = touchY - paddleHeight / 2;
+                }
             }
-          }
-          
-          // add event listeners to detect device tilt
-          window.addEventListener("deviceorientation", movePaddle);
-          
+            // Add event listeners for the buttons
+            document.getElementById("move-up").addEventListener("click", function() {
+                movePaddleUp();
+            });
+            document.getElementById("move-down").addEventListener("click", function() {
+                movePaddleDown();
+            });
+            
+            // Functions to move the paddle up and down
+            function movePaddleUp() {
+                paddleY -= paddleSpeed;
+            }
+            function movePaddleDown() {
+                paddleY += paddleSpeed;
+            }
+  
+        }
         
 
         function gameLoop() {
             if (!gamePaused) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+                
                 drawBall();
                 drawPaddle();
-                
-
+        
                 if (ballY + ballRadius > canvas.height || ballY - ballRadius < 0) {
                     ballSpeedY = -ballSpeedY;
                 }
-
+        
                 if (ballX + ballRadius > canvas.width - paddleWidth) {
                     if (ballY > paddleY && ballY < paddleY + paddleHeight) {
                         ballSpeedX = -ballSpeedX;
                     } else {
                         gamePaused = true;
-                        
                         document.location.reload();
                     }
                 }
-
+        
                 if (ballX - ballRadius < 0 + paddleWidth) {
                     ballSpeedX = -ballSpeedX;
                 }
-
+        
                 ballX += ballSpeedX;
                 ballY += ballSpeedY;
-
+                
                 document.addEventListener("keydown", movePaddle, false);
+                canvas.addEventListener("touchstart", movePaddle, false);
+                canvas.addEventListener("touchmove", movePaddle, false);
+                
             }
-
+        
             requestAnimationFrame(gameLoop);
         }
+        
 
         function togglePause() {
             gamePaused = !gamePaused;
@@ -196,9 +223,21 @@
             if (e.touches.length === 2) {
                 togglePause();
             }});
+        
+          
+        
+        
+        
+        
+        
         gameLoop();
     </script>
+    <div class="button">
+    <button id="move-up">Up</button>
+    <button id="move-down">Down</button>
+    </div>
+    <h2><hr>CONTROLS:</h2>
+        <h3>MOVE: UP/DOWN keys or buttons<br>Pause: SPACE or Tap screen with 2 fingers</h3>
 
-    <h2><hr>CONTROLS:<br>UP/DOWN keys<br>SPACE to Pause</h2>
 </body>
 </html>
