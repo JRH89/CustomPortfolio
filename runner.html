@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="images/Hooker Hill (1).jpg"/>
-    <meta property="og:image" content="images/IG_1.png">
-    <meta name="og:title" content="Fall Hollow Video Page">
-    <meta name="og:description" content="Videos of Fall Hollow">
+    <meta property="og:image" content="images/StarRunnerCover.png">
+    <meta name="og:title" content="Star Runner">
+    <meta name="og:description" content="Star Runner- avoid the space junk">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Runner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
     <style>
       canvas {
         border: 3px solid goldenrod;
@@ -23,20 +23,22 @@
       body {
         background-color: #333;
         font-family: Play, sans-serif;  
-    }
-    p {
+      }
+      p {
         text-align: center;
         font-size: 2em;
         color: orange;
-    }
-      
+      }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <canvas id="canvas"></canvas>
     <p>
-        CONTROLS:<br>Jump =   SPACE or TAP screen 
+    CONTROLS:<br>Jump = SPACE or TAP screen 
     </p>
+
+
     <script>
       const canvas = document.getElementById("canvas");
       const ctx = canvas.getContext("2d");
@@ -64,9 +66,9 @@
       });
 
       // Handle touch input
-    canvas.addEventListener("touchstart", (event) => {
-    bird.velocity = bird.jump;
-    });
+      canvas.addEventListener("touchstart", (event) => {
+      bird.velocity = bird.jump;
+      });
   
 
       // Move the bird and pipes
@@ -128,16 +130,16 @@
 
 
         // Increase the score every second
-setInterval(() => {
-    if (!gameOver) {
-      score++;
-    }
-  }, 1000);
+        setInterval(() => {
+            if (!gameOver) {
+              score++;
+            }
+          }, 1000);
 
         // Move the bird and pipes
         move();
 
-       // Draw the bird
+        // Draw the bird
         ctx.fillStyle = "yellow";
         ctx.beginPath();
         ctx.moveTo(bird.x + bird.width / 2, bird.y);
@@ -182,4 +184,3 @@ setInterval(() => {
     </script>
     </body>
     </html>
-    
