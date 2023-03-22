@@ -75,3 +75,10 @@ window.addEventListener("scroll", function() {
     buttonGroup.classList.remove("sticky");
   }
 });
+
+const button = document.querySelector('#game-btn');
+const audio = document.querySelector('#gameClick');
+button.addEventListener('click', () => {
+  audio.play();
+});
+
