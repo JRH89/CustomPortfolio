@@ -99,15 +99,15 @@
     width: 100%;
     top: 0;
   }
-  
+
   nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
   }
-  
+   
   nav ul li a {
     text-decoration: none;
     color: #333;
@@ -235,7 +235,6 @@ footer {
     max-width: 800px;
     margin: 0 auto;
     display: flex;
-    
     align-items: center;
     background-color: var(--bg-color);
     color: var(--text-color);
