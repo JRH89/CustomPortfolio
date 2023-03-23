@@ -66,6 +66,8 @@
       text-align: center;
     }
 
+
+    
     hr {
       width: 100%;
       height: 3px;
@@ -75,8 +77,6 @@
         
     }
       
-      
-  
   h1 {
     font-family: 'Play', sans-serif;
     font-size: 3rem;
@@ -140,6 +140,7 @@
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     justify-content: space-evenly;
+    
   }
   
   .game-row .card {
@@ -148,9 +149,25 @@
 
   }
 
+  .game-row .card .project-image {
+    border: 1px solid #7ed957;
+    border-radius: 3px;
+    width: 100%;
+    height: auto;
+    
+  }
+
   .recent-row .card {
     border: 2px solid #2697d8;
     box-shadow: 0px 0px 10px #2697d8;
+  }
+
+  .recent-row .card .project-image {
+    border: 1px solid #2697d8;
+    border-radius: 3px;
+    width: 100%;
+    height: auto;
+    
   }
 
 .software-row .card {
@@ -181,7 +198,7 @@
   }
   
   .project-image {
-    width: 90%;
+    width: 100%;
    height: auto;
     object-fit: cover;
    border-radius: 3px;
@@ -230,9 +247,9 @@ footer {
   color: #e52e71;
 
 }
-  
+
   .row {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     max-width: 800px;
     justify-content: center;
@@ -282,6 +299,11 @@ footer {
     .col-lg-4 {
       flex: 1 0 33.33%;
       padding: .2rem;
+    }
+
+    .row {
+      flex-direction: row;
+      flex-basis: 100%;
     }
   }
 
@@ -401,12 +423,10 @@ body.dark-mode {
     color: #333;
 }
 
-.row {
-    display: none;
-}
+
 
 .row.active {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
     flex-grow: 2;
 }
