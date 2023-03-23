@@ -184,11 +184,12 @@
     width: 90%;
    height: auto;
     object-fit: cover;
-    border: 2px solid black;
+   border-radius: 3px;
   }
   
   .btn {
     display: inline-block;
+    border: 1px solid #fff;
     background-color: #333;
     color: #fff;
     padding: 0.5rem 1rem;
