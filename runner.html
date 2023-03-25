@@ -49,16 +49,18 @@
       let bird = {
         x: width / 2,
         y: height / 2,
-        width: 50,
-        height: 50,
+        width: 25,
+        height: 25,
         velocity: 0,
         gravity: 0.4,
-        jump: -10,
+        jump: -8,
       };
       let pipes = [];
       let score = 0;
       let gameOver = false;
       let paused = true;
+      let gap = 300;
+      let topHeight = Math.floor(Math.random() * (canvas.height - gap - 50));
 
       // Handle keyboard input
       document.addEventListener("keydown", (event) => {
@@ -90,7 +92,7 @@
 
         // Spawn new pipes
         if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 200) {
-          let gap = 300;
+          
           let topHeight = Math.floor(Math.random() * (canvas.height - gap - 50));
           pipes.push({
             x: canvas.width,
@@ -135,9 +137,21 @@
         setInterval(() => {
           if (!gameOver) {
             score++;
+           
           }
         }, 1000);
 
+        let lastTime = Date.now();
+
+        setInterval(() => {
+          const currentTime = Date.now();
+          const timeElapsed = (currentTime - lastTime) / 1000; // Convert to seconds
+          if (!gameOver) {
+            gap -= 0.001 * timeElapsed;
+          }
+          lastTime = currentTime;
+        }, 5000);
+        
 
         // Move the star and obstacles
         move();
@@ -166,11 +180,11 @@
         // Draw the score
         ctx.fillStyle = "yellow";
         ctx.font = "2.5em Play";
-        ctx.fillText("Score: " + score, 10, 30);
+        ctx.fillText("Score: " + score, 15, 40);
 
         // Draw the game over message
         if (gameOver) {
-          ctx.fillStyle = "red";
+          ctx.fillStyle = "green";
           ctx.font = "3em Play";
           ctx.textAlign = "center"; 
           ctx.fillText("Game Over!", canvas.width / 2, canvas.height / 2);
