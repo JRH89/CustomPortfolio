@@ -15,9 +15,11 @@
       canvas {
         border: 3px solid green;
         width: 100%;
-        background-color: black;
+        
         height: auto;
         font-family: Play, sans-serif;
+        background-image: url("images/stars.png");
+        background-size: cover; /* or contain, depending on your needs */
       }
 
       body {
@@ -37,6 +39,11 @@
     <p>
     CONTROLS:<br>Jump = SPACE or TAP screen 
     </p>
+    <audio id="background-music" loop>
+      <source src="audio/hurry_up_and_run.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    
 
     <script>
 
@@ -184,7 +191,7 @@
 
         // Draw the game over message
         if (gameOver) {
-          ctx.fillStyle = "green";
+          ctx.fillStyle = "yellow";
           ctx.font = "3em Play";
           ctx.textAlign = "center"; 
           ctx.fillText("Game Over!", canvas.width / 2, canvas.height / 2);
@@ -198,10 +205,23 @@
           requestAnimationFrame(draw);
         }
       }
+ 
+     // Get a reference to the audio element
+
+     
     
+
       // Start the game
       draw();
-      
+     window.addEventListener('load', (event) => {
+      const backgroundMusic = document.getElementById('background-music');
+      backgroundMusic.play();
+    });
+
+    // When the page is about to be unloaded, pause the audio and reset its currentTime property
+    
+
+
     </script>
   </body>
 </html>
