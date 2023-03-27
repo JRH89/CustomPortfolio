@@ -438,3 +438,9 @@ body.dark-mode {
     flex-grow: 0;
   
 }
+
+.theme-switch-wrapper {
+align-items: center;
+  align-content: center;
+  justify-content: center;
+}
