@@ -22,11 +22,9 @@
 /*////////////////////*/
 /*////////////////////*/
 
-.container p.card-text {
-  padding: 0px 0px 0px;
-  
-}
-
+  .container p.card-text {
+  padding: 0px 0px 0px; 
+  }
 
   body {
     margin-top: 2em;
@@ -72,15 +70,12 @@
       text-align: center;
     }
 
-
-    
     hr {
       width: 100%;
       height: 3px;
       background-image: linear-gradient(to right, #2697d8,  #7ed957, #ff5757);
       border: none;
       margin: 0 auto;
-        
     }
       
   h1 {
@@ -113,9 +108,11 @@
     align-items: center;
     text-align: center;
   }
+
    nav ul li {
     justify-content: space-evenly;
    }
+
   nav ul li a {
     text-decoration: none;
     color: #333;
@@ -147,13 +144,11 @@
     text-align: center;
     justify-content: space-evenly;
     flex-grow: 0;
-    
   }
   
   .game-row .card {
     border: 2px solid #7ed957;
-  box-shadow: 0px 0px 10px #7ed957;
-
+    box-shadow: 0px 0px 10px #7ed957;
   }
 
   .game-row .card .project-image {
@@ -161,7 +156,6 @@
     border-radius: 5px;
     width: 100%;
     height: auto;
-    
   }
 
   .recent-row .card {
@@ -170,13 +164,10 @@
   }
 
   .recent-row .card .project-image {
-    
     border: 1px solid #2697d8;
     border-radius: 5px;
     width: 100%;
     height: auto;
-    
-    
   }
 
 .software-row .card {
@@ -208,9 +199,9 @@
   
   .project-image {
     width: 100%;
-   height: auto;
+    height: auto;
     object-fit: cover;
-   border-radius: 5px;
+    border-radius: 5px;
   }
   
   .btn {
@@ -314,6 +305,9 @@ footer {
     flex-basis: 100%;
     flex-grow: 0;
   }
+
+
+
 /*////////////////////*/
 /*////////////////////*/
 /*////////////////////*/
@@ -365,13 +359,13 @@ body.dark-mode {
   }
 
   .btn-group .recent-btn.dark-mode {
-    background-color: #333;
-    border: 1px solid #ccc;
-    color: #333;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
+  background-color: #333;
+  border: 1px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
 }
 
 
@@ -385,17 +379,15 @@ body.dark-mode {
 
 
   .btn-group {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-    
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
 
 .btn-group .btn.game-btn {
   margin-right: 10px;
   border: 2px solid #7ed957;
   box-shadow: 0px 0px 10px #7ed957;
-  
 }
 
 .btn-group .btn.recent-btn {
@@ -405,42 +397,42 @@ body.dark-mode {
 }
 
 .btn-group .btn.software-btn {
- 
   border: 2px solid #ff5757;
   box-shadow: 0px 0px 10px #ff5757;
 }
 
 .btn-group .btn {
-    background-color: #333;
-    border: 2px solid #ccc;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
+  background-color: #333;
+  border: 2px solid #ccc;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
 }
 
 .btn-group .btn:hover {
-    background-color: whitesmoke;
-    color: #333;
+  background-color: whitesmoke;
+  color: #333;
 }
 
 .btn-group .btn.active {
-    background-color: #fff;
-    color: #333;
+  background-color: #fff;
+  color: #333;
 }
 
-
-
 .row.active {
-    display: flex;
-    flex-wrap:wrap;
-    flex-grow: 0;
-  
+  display: flex;
+  flex-wrap:wrap;
+  flex-grow: 0;
 }
 
 .theme-switch-wrapper {
 align-items: center;
   align-content: center;
   justify-content: center;
+}
+
+.pics img {
+  border-radius: 10px;
 }
