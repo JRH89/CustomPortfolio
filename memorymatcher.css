@@ -3,7 +3,7 @@
     src: url(./FredokaOne-Regular.ttf);
 }
 
-html {
+body {
     width: auto;
     height: 100vh;
     background: linear-gradient(360deg,  #ff5757 0%,#7ed957 50%,#2797d8 100%);
