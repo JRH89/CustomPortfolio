@@ -64,6 +64,8 @@ button {
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-gap: 20px;
+    width: 90%;
+    height:90%;
 }
 
 .board-container.flipped .board {
