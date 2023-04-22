@@ -41,11 +41,7 @@
     padding-right: 2em;
     padding-bottom: 1em;
   }
-  .container {
  
-    flex-grow: 0;
-  }
-  
   .container {
     flex-basis: calc(50% - 10px);
     margin-bottom: 20px;
