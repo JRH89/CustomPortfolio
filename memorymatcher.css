@@ -53,22 +53,11 @@ button {
     font-size: 14pt;
 }
 
-.board-container {
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width:auto;
-    height:auto;
-    align-content: center;
-    align-self: center;
-}
 
-.board,
 .win {
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
-    box-shadow: 0 25px 50px rgb(33 33 33 / 25%);
+    
     
     transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
     backface-visibility: hidden;
