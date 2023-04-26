@@ -12,6 +12,7 @@
     padding: 0;
     box-sizing: border-box;
     flex-grow: 0;
+
   }
   
 /*////////////////////*/
@@ -36,7 +37,7 @@
   }
   
   .container p {
-
+    max-width: 600px;
     padding-left: 2em;
     padding-right: 2em;
     padding-bottom: 1em;
@@ -340,14 +341,16 @@ body.dark-mode {
   .card.dark-mode .card-title {
     color: #fff;
   }
-  
+    
   .btn.dark-mode {
     background-color: #fff;
     color: #333;
+    cursor: pointer;
   }
   
   .btn.dark-mode:hover {
     background-color: #eee;
+    cursor: pointer;
   }
 
   .btn.dark-mode {
@@ -373,9 +376,13 @@ body.dark-mode {
 /*////////////////////*/
 /*////////////////////*/
 
+#toggle-btn {
+  cursor: pointer;
+}
 
   .btn-group {
   display: flex;
+  flex:auto;
   justify-content: center;
   margin: 20px 0;
 }
@@ -429,6 +436,19 @@ align-items: center;
   justify-content: center;
 }
 
+.pics {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+}
 .pics img {
   border-radius: 10px;
+  border: 1px solid white;
+  margin: 10px;
+}
+.container>a>img {
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 10px;
 }

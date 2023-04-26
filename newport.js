@@ -2,7 +2,6 @@ const toggleBtn = document.getElementById("toggle-btn");
 const body = document.body;
 body.classList.add("dark-mode");
 
-
 toggleBtn.addEventListener("click", function() {
   body.classList.toggle("dark-mode");
 });
@@ -74,11 +73,5 @@ window.addEventListener("scroll", function() {
   } else {
     buttonGroup.classList.remove("sticky");
   }
-});
-
-const button = document.querySelector('#game-btn');
-const audio = document.querySelector('#gameClick');
-button.addEventListener('click', () => {
-  audio.play();
 });
 
