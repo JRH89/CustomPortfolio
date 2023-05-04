@@ -31,9 +31,10 @@
     margin-top: 2em;
     font-family: 'Play', sans-serif;
     font-size: 1em;
+   
     background-color: #f5f5f5;
-    color: #333;
-    transition: background-color 0.5s ease;
+    color: #000;
+    transition: background-color 0.3s ease;
   }
   
   .container p {
@@ -90,19 +91,22 @@
   }
  
   nav {
-    display: flex;
+    
     background-image: linear-gradient(to right, #2697d8,  #7ed957, #ff5757);
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
   nav ul {
     list-style: none;
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
@@ -114,9 +118,9 @@
 
   nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #000;
     font-weight: bold;
-    padding: 0em 1rem;
+    padding: 2px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -206,7 +210,7 @@
   .btn {
     display: inline-block;
     border: 1px solid #fff;
-    background-color: #333;
+    background-color: #000;
     color: #fff;
     padding: 0.5rem 1rem;
     border-radius: 10px;
@@ -215,8 +219,8 @@
   }
   
   .btn:hover {
-    background-color: #555;
-    color: #333;
+    background-color: #000;
+    color: #fff;
     border: 1px solid #333;
     transition: background-color 0.5s ease;
   }
@@ -318,12 +322,12 @@ footer {
 
 
 body.dark-mode {
-    background-color: #333;
+    background-color: #000;
     color: #fff;
   }
   
   nav.dark-mode {
-    background-color: #555;
+    background-color: #000;
   }
   
   nav.dark-mode ul li a {
@@ -335,7 +339,7 @@ body.dark-mode {
   }
   
   .card.dark-mode {
-    background-color: #444;
+    background-color: #000;
     color: #fff;
     box-shadow: none;
   }
@@ -346,7 +350,7 @@ body.dark-mode {
     
   .btn.dark-mode {
     background-color: #fff;
-    color: #333;
+    color: #000;
     cursor: pointer;
   }
   
@@ -360,7 +364,7 @@ body.dark-mode {
   }
 
   .btn-group .recent-btn.dark-mode {
-  background-color: #333;
+  background-color: #000;
   border: 1px solid #ccc;
   color: #333;
   cursor: pointer;
@@ -407,7 +411,7 @@ body.dark-mode {
 }
 
 .btn-group .btn {
-  background-color: #333;
+  background-color: #000;
   border: 2px solid #ccc;
   color: #fff;
   cursor: pointer;
@@ -418,12 +422,12 @@ body.dark-mode {
 
 .btn-group .btn:hover {
   background-color: whitesmoke;
-  color: #333;
+  color: #000;
 }
 
 .btn-group .btn.active {
-  background-color: #fff;
-  color: #333;
+  background-color: #f5f5f5;
+  color: #000;
 }
 
 .row.active {
