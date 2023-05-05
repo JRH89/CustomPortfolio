@@ -392,19 +392,20 @@ body.dark-mode {
 
   .btn-group {
   display: flex;
-  flex:auto;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   margin: 20px 0;
+  width: 80%;
 }
 
 .btn-group .btn.game-btn {
-  margin-right: 10px;
+
   border: 2px solid #7ed957;
   box-shadow: 0px 0px 5px #7ed957;
 }
 
 .btn-group .btn.recent-btn {
-  margin-right: 5px;
+ 
   border: 2px solid #2697d8;
   box-shadow: 0px 0px 5px #2697d8;
 }
@@ -422,6 +423,9 @@ body.dark-mode {
   font-size: 16px;
   padding: 10px 20px;
   transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .btn-group .btn:hover {
