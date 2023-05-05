@@ -151,7 +151,7 @@
   
   .game-row .card {
     border: 2px solid #7ed957;
-    box-shadow: 0px 0px 10px #7ed957;
+    box-shadow: 0px 0px 5px #7ed957;
   }
 
   .game-row .card .project-image {
@@ -163,7 +163,7 @@
 
   .recent-row .card {
     border: 2px solid #2697d8;
-    box-shadow: 0px 0px 10px #2697d8;
+    box-shadow: 0px 0px 5px #2697d8;
   }
 
   .recent-row .card .project-image {
@@ -175,7 +175,7 @@
 
 .software-row .card {
   border: 2px solid #ff5757;
-  box-shadow: 0px 0px 10px #ff5757;
+  box-shadow: 0px 0px 5px #ff5757;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -212,8 +212,9 @@
     border: 1px solid #fff;
     background-color: #000;
     color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
+    padding: 0.5em;
+    margin: 2px;
+    border-radius: 8px;
     text-decoration: none;
     transition: background-color 0.5s ease;
   }
@@ -396,18 +397,18 @@ body.dark-mode {
 .btn-group .btn.game-btn {
   margin-right: 10px;
   border: 2px solid #7ed957;
-  box-shadow: 0px 0px 10px #7ed957;
+  box-shadow: 0px 0px 5px #7ed957;
 }
 
 .btn-group .btn.recent-btn {
-  margin-right: 10px;
+  margin-right: 5px;
   border: 2px solid #2697d8;
-  box-shadow: 0px 0px 10px #2697d8;
+  box-shadow: 0px 0px 5px #2697d8;
 }
 
 .btn-group .btn.software-btn {
   border: 2px solid #ff5757;
-  box-shadow: 0px 0px 10px #ff5757;
+  box-shadow: 0px 0px 5px #ff5757;
 }
 
 .btn-group .btn {
