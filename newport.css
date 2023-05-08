@@ -38,7 +38,7 @@
   }
   
   .container p {
-    max-width: 600px;
+    max-width: 700px;
     padding-left: 1em;
     padding-right: 1em;
     font-size: 1.1em;
@@ -46,6 +46,23 @@
     line-height: 1.3em;
    
   }
+
+    .libutton {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 7px;
+      text-align: center;
+      outline: none;
+      text-decoration: none !important;
+      color: #ffffff !important;
+      width: 200px;
+      height: 32px;
+      margin-bottom: 5px;
+      border-radius: 8px;
+      background-color: #0A66C2;
+      font-family: "SF Pro Text", Helvetica, sans-serif;
+    }
  
   .container {
     flex-basis: calc(50% - 10px);
@@ -136,6 +153,8 @@
   }
 
   .card {
+    display: flex;
+    justify-content: center;
     flex: 0 0 calc(50% - 10px);
     margin: 5px;
     padding: 10px;
@@ -147,7 +166,8 @@
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     justify-content: space-evenly;
-    flex-grow: 0;
+    align-items: center;
+    max-width: 400px;
   }
   
   .game-row .card {
@@ -189,7 +209,7 @@
 }
 
   .card:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px rgba(248, 246, 246, 0.793);
   }
   
   .card-title {
@@ -256,6 +276,7 @@ footer {
 }
 
   .row {
+   
     display: none;
     flex-wrap: wrap;
     max-width: 800px;
@@ -282,17 +303,22 @@ footer {
   }
   
   @media (max-width: 480px) {
-    .col-md-6 {
+    body {
+      max-width: 750px;
+      padding: .2rem;
+    }
+    
+    .col-md-1 {
       flex: 0 0 calc(50%);
     }
   }
   @media (min-width: 576px) {
-    .col-md-6 {
+    .col-md-3 {
       flex: 0 0 calc(50%);
       padding: .2rem;
     }
   }
-  @media screen and (max-width: 768px) {
+  @media (max-width: 991px) {
     .col-md-6 {
       flex: 0 0 calc(50%);
       padding: .2rem;
