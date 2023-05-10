@@ -49,6 +49,15 @@
    
   }
 
+     #certs {
+      color: black;
+      background-color: white;
+      padding: 5px;
+      border-radius: 8px;
+      margin-top: 5px;
+      
+    }
+
     .libutton {
       display: flex;
       flex-direction: column;
