@@ -350,7 +350,7 @@ footer {
   .row {
     flex-direction: row;
     flex-basis: 100%;
-    flex-grow: 0;
+
   }
 
 
