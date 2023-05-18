@@ -13,6 +13,7 @@
     box-sizing: border-box;
     flex-grow: 0;
     background-image: 'images/BG.jpg';
+    
 
   }
   
@@ -30,19 +31,20 @@
 
   body {
     margin-top: 2em;
-   
+   height: 100%;
     font-family: 'Play', sans-serif;
     font-size: 1em;
-   
+  
     background-color: #f5f5f5;
     color: #000; 
     transition: background-color 0.3s ease;
+    justify-content: center;
   }
   
   .container p {
-    max-width: 700px;
-    padding-left: 1em;
-    padding-right: 1em;
+    max-width: 600px;
+    padding-left: 2em;
+    padding-right: 2em;
     font-size: 1.1em;
     font-weight: 500;
     line-height: 1.3em;
@@ -97,8 +99,15 @@
     flex-grow: 0;
   }
 
+
+
     footer {
       text-align: center;
+      margin-bottom: none;
+      bottom: 0;
+      justify-content: center;
+      width: 100%;
+      background-color: #000;
     }
 
     hr {
@@ -122,7 +131,7 @@
   }
  
   nav {
-    
+
     background-image: linear-gradient(to right, #2697d8,  #7ed957, #ff5757);
     justify-content: space-evenly;
     align-items: center;
@@ -279,14 +288,21 @@
   }
   
 footer {
-  color: white;
+  background-color: black;
   background: linear-gradient(to right, #2697d8,  #7ed957, #ff5757);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
   color: #e52e71;
-
+  font-size: 1em;
+  align-items: center;
+  place-items: center;
+  text-align: center;
+  
+  text-align: center;
+justify-content: center;
+justify-self: center;
 }
 
   .row {
