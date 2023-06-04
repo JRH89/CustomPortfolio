@@ -12,9 +12,9 @@
   padding: 0;
   box-sizing: border-box;
   flex-grow: 0;
-  background-image: 'images/BG.jpg';
 
-
+  transition-duration: 500ms;
+  animation-duration: 300ms;
 }
 
 /*////////////////////*/
@@ -107,6 +107,7 @@ footer {
   justify-content: center;
   width: 100%;
   background-color: #000;
+
 }
 
 hr {
@@ -292,7 +293,6 @@ footer {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
   color: #e52e71;
   font-size: 1em;
   align-items: center;
